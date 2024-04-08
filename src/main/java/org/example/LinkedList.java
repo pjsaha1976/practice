@@ -38,6 +38,7 @@ public class LinkedList {
         return;
     }
     public void delete(Node node) {
+        //delete node
     }
     public void find(Node node) {
 
