@@ -20,19 +20,15 @@ public class LinkedList {
         return size;
     }
     public void insert(Node node) {
-        //insert node at the end of a list
-
-        Node temp;
-
+        Node temp= head;
         //empty list
-        if (head == null) {
+        if (temp == null) {
             head = node;
             this.size++;
             return;
         }
 
         //travel to the end of the list
-        temp = head;
         while(temp.next != null){
             temp = temp.next;
         }
@@ -42,49 +38,35 @@ public class LinkedList {
         return;
     }
     public void delete(Node node) {
-        //empty list
         if (head == null) return;
-
-        //matches the first node - adjust head after removing first node
+        //delete head node
         if (head.val == node.val) {
-            Node temp = head;
             head = head.next;
-            temp.next = null;
             size--;
             return;
         }
-
-        //find the node to delete
+        //delete other nodes
         Node current = head;
         Node prev = head;
-        while (current != null)
-        {
-            if (current.val == node.val) {
+        while (current != null) {
+            if (current.val == node.val) { //item found
                 prev.next = current.next;
                 size--;
                 return;
-            }
-            else {
+            } else {
                 prev = current;
                 current = current.next;
             }
-
         }
-        return;
-
     }
+
     public boolean find(Node node) {
-        if (head == null) return false; //empty list
-
-        //list with values
-        Node current = head;
-        while (current != null) {
-            if (current.val == node.val) {
-                return true;
-            }
-            current = current.next;
+        if (head == null) return false;
+        Node temp = head;
+        while (temp != null){
+            if (temp.val == node.val) return true;
+            else temp = temp.next;
         }
-
         return false;
 
     }
