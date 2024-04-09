@@ -20,15 +20,19 @@ public class LinkedList {
         return size;
     }
     public void insert(Node node) {
-        Node temp= head;
+        //insert node at the end of a list
+
+        Node temp;
+
         //empty list
-        if (temp == null) {
+        if (head == null) {
             head = node;
             this.size++;
             return;
         }
 
         //travel to the end of the list
+        temp = head;
         while(temp.next != null){
             temp = temp.next;
         }
@@ -38,11 +42,50 @@ public class LinkedList {
         return;
     }
     public void delete(Node node) {
-    }
-    public void find(Node node) {
+        //empty list
+        if (head == null) return;
+
+        //matches the first node - adjust head after removing first node
+        if (head.val == node.val) {
+            Node temp = head;
+            head = head.next;
+            temp.next = null;
+            size--;
+            return;
+        }
+
+        //find the node to delete
+        Node current = head;
+        Node prev = head;
+        while (current != null)
+        {
+            if (current.val == node.val) {
+                prev.next = current.next;
+                size--;
+                return;
+            }
+            else {
+                prev = current;
+                current = current.next;
+            }
+
+        }
+        return;
 
     }
-    public void update(Node node) {
+    public boolean find(Node node) {
+        if (head == null) return false; //empty list
+
+        //list with values
+        Node current = head;
+        while (current != null) {
+            if (current.val == node.val) {
+                return true;
+            }
+            current = current.next;
+        }
+
+        return false;
 
     }
 
