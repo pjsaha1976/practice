@@ -20,4 +20,19 @@ class AlgorithmTest {
 
     }
 
+    @Test
+    void topKString()
+    {
+        //given
+        String[] arr = {"ab", "abc", "abcd", "xyz", "b", "a", "a", "xyz", "xyz", "xyz", "b"};
+
+        //when
+        String[] result = Algorithm.topKString(arr,3);
+
+        //then
+        for (String s : result){
+            System.out.println(s);
+        }
+    }
+
 }
