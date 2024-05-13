@@ -1,6 +1,9 @@
 package org.example;
 
-public class LinkedList {
+//example linked list implementation
+//more test for PR
+
+ublic class LinkedList {
 
     private Node head;
     private int size;
@@ -38,12 +41,36 @@ public class LinkedList {
         return;
     }
     public void delete(Node node) {
-        //delete node
+        if (head == null) return;
+        //delete head node
+        if (head.val == node.val) {
+            head = head.next;
+            size--;
+            return;
+        }
+        //delete other nodes
+        Node current = head;
+        Node prev = head;
+        while (current != null) {
+            if (current.val == node.val) { //item found
+                prev.next = current.next;
+                size--;
+                return;
+            } else {
+                prev = current;
+                current = current.next;
+            }
+        }
     }
-    public void find(Node node) {
 
-    }
-    public void update(Node node) {
+    public boolean find(Node node) {
+        if (head == null) return false;
+        Node temp = head;
+        while (temp != null){
+            if (temp.val == node.val) return true;
+            else temp = temp.next;
+        }
+        return false;
 
     }
 
