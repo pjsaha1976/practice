@@ -1,6 +1,8 @@
 package org.example;
 
-public class LinkedList {
+//example linked list implementation
+
+ublic class LinkedList {
 
     private Node head;
     private int size;
